@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def get_href(word: str) -> dict:
+def get_response(word: str) -> dict:
     href: str = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
     resp: requests.Response = requests.get(href)
     if resp.status_code == 404:
@@ -33,10 +33,10 @@ def print_result(resp: dict) -> None:
 
 
 if __name__ == '__main__':
-    inp = input()
+    inp = input('Input a word: ')
     if inp:
         print('Getting response...')
-        json_response = get_href(inp)
+        json_response = get_response(inp)
         if json_response:
             print_result(json_response)
     else:
