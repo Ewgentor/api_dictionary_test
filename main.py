@@ -26,10 +26,10 @@ def print_result(resp: dict) -> None:
     meanings: dict = resp.get('meanings')[0]
     part_of_speech: str = meanings.get('partOfSpeech')
     definitions: list = meanings.get('definitions')
-    print(f"{phonetic_text}\n{phonetic_audio}")
-    print(f"{part_of_speech}")
-    for definition in definitions:
-        print(definition.get('definition'))
+    print(f"Phonetic: {phonetic_text}\nPhonetic audio: {phonetic_audio}")
+    print(f"Part of speech: {part_of_speech}")
+    for definition in enumerate(definitions):
+        print(f"Definition {definition[0]+1}: {definition[1].get('definition')}")
 
 
 if __name__ == '__main__':
